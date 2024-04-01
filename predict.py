@@ -45,9 +45,6 @@ def beam_search(model, src, src_mask, prefixes, level_range, beam_width, vocab_t
     # final scores matrix
     output = torch.zeros(batch_size, len(vocab_tgt)).fill_(-1e9).cuda()  # final scores are negative => default -inf
 
-    if all(len(p) == 0 for p in prefixes):
-        return output
-
     queue = []
     nprefixes = [len(prefixes_i) for prefixes_i in prefixes]  # number of prefixes per instance
     Tnprefixes = torch.tensor(nprefixes, device="cuda")

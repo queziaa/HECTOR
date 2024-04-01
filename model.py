@@ -30,7 +30,7 @@ class EncoderDecoder(nn.Module):
         self.generator = generator
         self.adapter = adapter
 
-    def forward(self, src, tgt, src_mask, tgt_mask, passes=0, prob=0):
+    def forward(self, src, tgt, src_mask, tgt_mask):
         """Take in and process masked src and target sequences."""
         src = self.encode(src, src_mask)
         src = self.adapter(src)
