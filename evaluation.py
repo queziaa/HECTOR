@@ -66,7 +66,7 @@ def run_eval(testset_path, pred_path, onto_path, start_level):
     total = 0
 
     for i in range(predictions.shape[0]):
-        pred_i = predictions[i]
+        pred_i = [l for l in predictions[i] if l in relevant_labels]
         tgt_i = [l for l in testset[i]["label"] if l in relevant_labels]
 
         if len(tgt_i) == 0:
