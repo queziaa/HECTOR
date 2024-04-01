@@ -171,6 +171,7 @@ def run_prediction(config, model_path, start_level):
     data_iter = (Batch(b[0], b[1], vocab_src["<blank>"]) for b in test_dataloader)
 
     max_level = config["Prediction"].getint("max_level")
+    batch_size = config["DataLoader"].getint("batch_size_test")
 
     print(f"{datetime.now()} Start predicting")
     all_pred = []
@@ -179,9 +180,6 @@ def run_prediction(config, model_path, start_level):
     model.eval()
     with torch.no_grad():
         for i, batch in enumerate(data_iter):
-            batch_size = batch.src.shape[0]
-            print(batch_size)
-
             start_idx = i * batch_size
             end_idx = min((i + 1) * batch_size, len(testset))
 
@@ -209,8 +207,6 @@ def run_prediction(config, model_path, start_level):
                 vocab_tgt=vocab_tgt,
                 level2lid=level2lid
             )
-
-            print(output[:10, :10])
 
             top_scores, top_pred = torch.topk(output, k=1000, dim=1)  # keep top-k predicted labels
 
