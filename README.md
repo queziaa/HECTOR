@@ -112,3 +112,10 @@ python evaluation.py --testset TESTSET --pred PRED --ontology ONTOLOGY --level L
 - `ONTOLOGY`: path to `ontology.json` file
 - `LEVEL`: for label refinement task: only consider labels of level >= `LEVEL`. 
 For all labels, set `LEVEL` to 1.
+
+## References
+For the full method description and experimental results please refer to our paper:
+
+Natalia Ostapuk, Julien Audiffren, Ljiljana Dolamic, Alain Mermoud, and Philippe Cudre-Mauroux. 2024.
+Follow the Path: Hierarchy-Aware Extreme Multi-Label Completion for Semantic Text Tagging.
+*In Proceedings of the ACM Web Conference 2024 (WWW ’24), May 13–17, 2024, Singapore, Singapore.* 
