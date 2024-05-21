@@ -21,7 +21,7 @@ def main():
     parser = argparse.ArgumentParser()
 
     parser.add_argument("--name", required=True, help="Used as a prefix for model name and log file name")
-    parser.add_argument("--config", default="configs/config_MAG.ini")
+    parser.add_argument("--config", default="configs/config_MeSH.ini")
 
     args = parser.parse_args()
 
